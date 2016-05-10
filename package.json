@@ -1,10 +1,10 @@
 {
   "name": "nody-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "this is my node server engine",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js",
+    "test": "node --debug server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -16,6 +16,8 @@
     "server"
   ],
   "dependencies": {
+    "mongodb":"2.1.18",
+    "node-templator": "*"
   },
   "author": "yuekeyuan",
   "license": "ISC",

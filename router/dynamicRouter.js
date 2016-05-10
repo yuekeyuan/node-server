@@ -205,6 +205,10 @@ function DynamicRouter(){
         data = url.parse(req.url, true).query;
         info["data"] = data;
 
+        // add feature to request
+
+
+        // add feature to response.
         res.writeHeader(200, {"content-Type": "text/html"});
         res.readFile = function (path) {
             res.write(fs.readFileSync(path));
