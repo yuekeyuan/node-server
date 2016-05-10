@@ -1,0 +1,26 @@
+{
+  "name": "nody-server",
+  "version": "1.0.2",
+  "description": "this is my node server engine",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuekeyuan/node.y.git"
+  },
+  "keywords": [
+    "node",
+    "server"
+  ],
+  "dependencies": {
+  },
+  "author": "yuekeyuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuekeyuan/node.y/issues"
+  },
+  "homepage": "https://github.com/yuekeyuan/node.y#readme"
+}
