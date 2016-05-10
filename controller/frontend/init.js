@@ -1,5 +1,3 @@
-var name = require("./name")
-
 module.exports = {
-    name: name
+    name: require("./name")
 };

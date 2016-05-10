@@ -1,7 +1,7 @@
 var urlConfig = require("../config").url;
 url = require("url");
 var controller = require("../controller/init");
-
+var util = require("./utils");
 /**
  * 加载 并 翻译 url
  */
@@ -13,8 +13,9 @@ function loadUrl(){
     };
 
     var isJson = function(obj){
-        var isjson = typeof(obj) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length;
-        return isjson;
+        //var isjson = typeof(obj) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length;
+        //return isjson;
+        return typeof obj == "object"? true : false;
     };
 
     this.parseUrl = function(urlconfig, map){
@@ -22,13 +23,16 @@ function loadUrl(){
         for(var key in urlconfig){
             if (!isJson(urlconfig[key])){
                 newMap = JSON.parse(JSON.stringify(map));
-                newMap["url"] += key;
+                if(["::GET","::POST","::PUT","::DELETE"].indexOf(key.toLocaleUpperCase()) == -1){
+                    newMap["url"] += key;
+                }
                 var tem = joinParam(key, urlconfig[key], newMap);
                 list.push(tem);
             } else {
                 newMap = JSON.parse(JSON.stringify(map));
                 newMap["url"] += key;
-                parse(key, urlconfig[key], newMap);
+                //parse(key, urlconfig[key], newMap);
+                this.parseUrl(urlconfig[key], newMap);
             }
         }
         spiltUrls();
@@ -127,7 +131,7 @@ function MatchUrl(){
     var urlList = [];
     this.setUrlList = function(list){
         urlList = list;
-    }
+    },
     /**
      * 现在开始实现方法上的对比
      * @param str
@@ -171,8 +175,6 @@ function MatchUrl(){
         }
         return a;
     };
-
-
 }
 
 /**
@@ -184,7 +186,7 @@ function DynamicRouter(){
     var matchUrl = new MatchUrl();
 
     this.processDynamicRequest = function(req, res){
-        param = wrapRequest(req);
+        param = wrapRequest(req, res);
         var handler = mapUrl2Handler(param);
         if(handler == null){
             res.writeHead(404, {"Content-Type": "text/plain"});
@@ -195,13 +197,21 @@ function DynamicRouter(){
         execute(req, res, param, handler);
     };
 
-    var wrapRequest = function(req){
+    var wrapRequest = function(req, res){
         info = {};
         info["url"] = url.parse(req.url).pathname;
         info["headers"] = req.headers;
         info["method"] = req.method;
         data = url.parse(req.url, true).query;
         info["data"] = data;
+
+        res.writeHeader(200, {"content-Type": "text/html"});
+        res.readFile = function (path) {
+            res.write(fs.readFileSync(path));
+        },
+        res.renderFile = function(path, param){
+            //TODO: res.write(render(req, res, param));  编写 render文件
+        }
 
         /*
          对于其他数据，我们不做强求，需要的时候再获取。
@@ -241,12 +251,12 @@ function DynamicRouter(){
      * 初始化controller
      */
     this.init = function(){
-        console.log("加载 controller 控制层");
         this.urlConfig = urlConfig;
         var parser = new loadUrl();
         parser.parseUrl(this.urlConfig, {"url":""});
         this.urlList = parser.getList();
         matchUrl.setUrlList(this.urlList);
+        console.log(this.urlList);
     };
     this.init();
 }

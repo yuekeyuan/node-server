@@ -16,10 +16,9 @@ var faviconFile = null;
  * @constructor
  */
 function Processor() {
-
     this.processRequest = function(req, res){
         var path = url.parse(req.url).pathname;
-        console.log(path);
+        console.log("request path: " + path);
         var result = this.isStaticFileRequest(req);
         if(result != false && result != undefined){
             staticRouter.processStaticRequest(req, res, result);

@@ -3,7 +3,6 @@ var url = require('url');
 var BASE_DIR = __dirname;
 var configMime = require("../config").mime;
 var configStaticUrlMapping = require("../config").staticUrlDirectory;
-var utils = require("./utils");
 var querystring = require("querystring");
 
 var faviconFile = null;

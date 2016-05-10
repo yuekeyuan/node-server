@@ -1,5 +1,5 @@
 get = function(req, res, param){
-    res.writeHeader(200, {"content-Type": "text/plain"});
+    res.readFile("./resource/html/index.html");
     res.end("it's now my world!");
 };
 

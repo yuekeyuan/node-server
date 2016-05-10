@@ -1,7 +1,4 @@
-var index = require("./index");
-var frontend = require("./frontend/init");
-
 module.exports = {
-    index:index,
-    frontend: frontend
+    index:require("./index"),
+    frontend: require("./frontend/init"),
 };

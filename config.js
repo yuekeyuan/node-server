@@ -9,7 +9,10 @@ url = {
     "/hello": {
         "/world":"controller.index.put",
         "::GET" : "controller.index.put",
-        "::POST": "controller.index.post"
+        "::POST": "controller.index.post",
+        "/this": {
+            "::GET": "controller.index.put"
+        }
     }
 };
 
