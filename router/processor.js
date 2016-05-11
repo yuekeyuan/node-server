@@ -46,6 +46,7 @@ function Processor() {
                 faviconFile = file;
             })
         });
+        console.log("init server succeed!");
     };
     this.init();
 }

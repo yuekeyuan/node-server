@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="main.css"/>
+<script src="http://cdn.bootcss.com/markdown.js/0.6.0-beta1/markdown.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>{{block title}}Title{{end block}}</title>
+</head>
+<body>
+<div class="main">
+    <header style="display: block;">
+        {{include division/header.yky}}
+    </header>
+    <nav>
+        {{include division/navigator.yky}}
+    </nav>
+    <div class="content" style="position:relative;">
+        <div class="article">
+            <script>
+                document.write(markdown.toHTML("#hello world\n#hello world\n#hello word"));
+            </script>
+
+        </div>
+        <div class="content_title">总括</div>
+        <div class="beforeandnext" style="float:left;bottom: 0px; position: absolute;">
+            <span class="before">上一个</span>
+            <span class="next">下一个</span>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+        </html>

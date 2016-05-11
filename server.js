@@ -3,7 +3,6 @@ var Processor = require('./router/processor');
 var port = 18080;
 
 processor = new Processor();
-
 http.createServer(function(req, res) {
     req.setEncoding('utf-8');
     processor.processRequest(req, res);

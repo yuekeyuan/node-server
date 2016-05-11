@@ -3,6 +3,7 @@ var path = require("path");
 /**
  * url 映射， 包含 静态的url 地址映射 (append方法加载)
  * 和动态的 url 处理函数映射。
+ * 当然 URl还有另外一种写法，比较直观的那种，就是一对一的。
  */
 url = {
     "/": "controller.index.get",
@@ -11,7 +12,7 @@ url = {
         "::GET" : "controller.index.put",
         "::POST": "controller.index.post",
         "/this": {
-            "::GET": "controller.index.put"
+            "::GET": "controller.index.ppp"
         }
     }
 };

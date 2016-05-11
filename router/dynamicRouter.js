@@ -2,6 +2,7 @@ var urlConfig = require("../config").url;
 url = require("url");
 var controller = require("../controller/init");
 var util = require("./utils");
+var Render = require("node-templator");
 /**
  * 加载 并 翻译 url
  */
@@ -184,7 +185,7 @@ function MatchUrl(){
 function DynamicRouter(){
     this.urlConfig = null;
     var matchUrl = new MatchUrl();
-
+    var renderEngine = new Render({templateDir: "\\resource\\template\\", preCompile: true});
     this.processDynamicRequest = function(req, res){
         param = wrapRequest(req, res);
         var handler = mapUrl2Handler(param);
@@ -207,15 +208,14 @@ function DynamicRouter(){
 
         // add feature to request
 
-
         // add feature to response.
         res.writeHeader(200, {"content-Type": "text/html"});
+        res.renderFile = function (file, global, isfile) {
+            res.write(renderEngine.renderTemplate(file, global, isfile));
+        };
         res.readFile = function (path) {
             res.write(fs.readFileSync(path));
-        },
-        res.renderFile = function(path, param){
-            //TODO: res.write(render(req, res, param));  编写 render文件
-        }
+        };
 
         /*
          对于其他数据，我们不做强求，需要的时候再获取。
@@ -245,11 +245,11 @@ function DynamicRouter(){
             return "controller.index.get";
         }
         return str;
-    }
+    };
 
     var execute = function(req, res, param, handler){
         eval(handler + "(req, res, param)");
-    }
+    };
 
     /**
      * 初始化controller
@@ -260,7 +260,6 @@ function DynamicRouter(){
         parser.parseUrl(this.urlConfig, {"url":""});
         this.urlList = parser.getList();
         matchUrl.setUrlList(this.urlList);
-        console.log(this.urlList);
     };
     this.init();
 }

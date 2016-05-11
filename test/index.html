@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="main.css"/>
+<script src="http://cdn.bootcss.com/markdown.js/0.6.0-beta1/markdown.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="main">
+    <header style="display: block;">
+        <img src=header.png style="height: 100px; display:inline-block; float:left;"/>
+        <h1 style="display: inline-block; height: 100px; line-height:100px;">node_templator 介绍</h1>
+    </header>
+    <div>
+        <nav>
+            <ul>
+                <li>目录列表</li>
+                <li>第一点</li>
+                <li>第一点</li>
+                <li>第一点</li>
+                <li>第一点</li>
+                <li>第一点</li>
+            </ul>
+        </nav>
+        <div class="content" style="position:relative;">
+            <div class="article">
+                <script>
+                    document.write(markdown.toHTML("#hello world\n#hello world\n#hello word"));
+                </script>
+
+            </div>
+            <div class="content_title">总括</div>
+            <div class="beforeandnext" style="float:left;bottom: 0px; position: absolute;">
+                <span class="before">上一个</span>
+                <span class="next">下一个</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
