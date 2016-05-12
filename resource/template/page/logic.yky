@@ -1,1 +1,1 @@
-this is basic
+{{extends parent_framework.yky}}

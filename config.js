@@ -26,7 +26,7 @@ url = {
     "/join": "controller.index.join",
     //grammar
     "/structure": "controller.grammar.structure",
-    "/logic": "controller.grammar.login",
+    "/logic": "controller.grammar.logic",
     "/data": "controller.grammar.data",
     "/other": "controller.grammar.other",
 };
