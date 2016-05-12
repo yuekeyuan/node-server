@@ -1,0 +1,12 @@
+<div class="article_title">
+    {{block article_title}}总括{{end block}}
+</div>
+<div class="article_content">
+    {{block article_content}}this is the article content{{end}}
+</div>
+
+<script>
+    $('.article_content code').each(function () {
+        $(this).replaceWith('<pre class="code">' + $(this).html() + '</pre>');
+    });
+</script>

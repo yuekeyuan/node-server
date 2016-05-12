@@ -1,0 +1,37 @@
+.article_content > h1, h2, h3, h4, h5, h6, p, hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.article_content p {
+    text-indent: 2em;
+}
+
+.article_content ul {
+    margin-left: 2em;
+}
+
+.article_content ul li {
+    line-height: 1.5em;
+    height: 1.5em;
+}
+
+.article_content blockquote {
+    border-left: #aaa solid 5px;
+    margin-left: 20px;
+}
+
+.article_content blockquote p {
+    text-indent: 1em;
+}
+
+.article_content .code {
+    margin: 2em;
+    padding: 1em;
+    text-indent: 0em;
+    line-height: 1.5em;
+    color: #D34B62;
+    border: 1px solid #aaaaaa;
+    background: #F9F2F4;
+    overflow-x: scroll;
+}

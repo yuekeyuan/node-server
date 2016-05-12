@@ -21,7 +21,7 @@ header {
 }
 
 nav {
-    width: 29%;
+    width: 20%;
     float: left;
     background-color: darkkhaki;
 }
@@ -39,7 +39,6 @@ nav ul li {
     background-color: #e3dcff;
     list-style-type: none;
     border-bottom: darkblue solid 1px;
-
 }
 
 nav ul li:first-child {
@@ -50,7 +49,7 @@ nav ul li:first-child {
 }
 
 .content {
-    width: 70%;
+    width: 79%;
     min-height: 500px;
     float: right;
     overflow: hidden;
@@ -94,6 +93,6 @@ nav ul li:first-child {
     content: "→";
 }
 
-.content .article_content {
+.content .article {
     margin: 1.5em;
 }

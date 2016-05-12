@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="markdown.css"/>
 <link rel="stylesheet" type="text/css" href="main.css"/>
-<script src="markdown.min.js"></script>
-<script src="jquery.js"></script>
+<script src="http://cdn.bootcss.com/markdown.js/0.6.0-beta1/markdown.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>{{block title}}Title{{end block}}</title>
 </head>
+
 <body>
 <div class="main">
     <header style="display: block;">
@@ -17,9 +16,13 @@
         {{include division/navigator.yky}}
     </nav>
     <div class="content" style="position:relative;">
+        <div class="article_title">
+            {{block article_title }}总括{{end block}}
+        </div>
         {{include division/content.yky}}
     </div>
 </div>
+
 </div>
 </body>
 </html>

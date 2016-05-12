@@ -1,26 +1,27 @@
-get = function(req, res, param){
+var index = function (req, res, param) {
     // res.readFile("./resource/html/index.html");
     res.renderFile("index.yky");
     res.end();
 };
 
-post = function(req, res, param){
-    res.writeHeader(200, {"content-Type": "text/plain"});
-    res.end("it's now my new world!");
+var basic = function (req, res, param) {
+    res.renderFile("page/basic.yky");
+    res.end();
 };
 
-put = function(req, res, param){
-    res.end("it's now my new get world!");
+var theory = function (req, res, param) {
+    res.renderFile("page/theory.yky");
+    res.end();
 };
 
-ppp = function (req, res, param) {
-    res.renderFile("a.yky");
-    res.end("");
+var join = function (req, res, param) {
+    res.renderFile("page/join.yky");
+    res.end();
 };
 
 module.exports = {
-    get:get,
-    post:post,
-    put: put,
-    ppp: ppp
+    index: index,
+    basic: basic,
+    theory: theory,
+    join: join,
 };

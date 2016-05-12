@@ -1,3 +1,16 @@
 {{extends parent_framework.yky}}
-        {{block title}}node_templator介绍{{end block}}
 
+{{-- setting html title}}
+{{block title}}node_templator{{end}}
+
+{{-- setting article title}}
+{{block article_title}}node_templator简介{{end}}
+
+{{-- setting content}}
+{{block article_content}}
+
+<script>
+    var content = '###node_templator 功能\\nnode_templator是一个基于 node.js 的模板引擎，作用是将 **模板** 结合 **数据** 生成 **html** 文档的一个工具。\\n它运行于web服务器端，有着优雅的语法规则和快捷的运行效率和高效的编程功能。结合本人设计的一个小巧的server服务器，可以满足大部分人的编程需求。\\n\\n###内容列表\\n* 模板引擎的基本使用规则。\\n* 模板引擎的工作原理\\n* 语法规则的框架结构\\n* 语法规则的逻辑结构（顺序结构，判断，循环）\\n* 语法规则的数据填充\\n* 其他小语法规则\\n* 模板引擎的基本原理\\n* 模板引擎与 nody-server 的结合使用开发web应用。';
+    document.write(markdown.toHTML(content));
+</script>
+{{end}}

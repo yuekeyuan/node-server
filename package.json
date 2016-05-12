@@ -1,6 +1,6 @@
 {
   "name": "nody-server",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "this is my node server engine",
   "main": "server.js",
   "scripts": {
@@ -17,8 +17,7 @@
   ],
   "dependencies": {
     "mongodb":"2.1.18",
-    "node-templator": "*",
-    "markdown": "*"
+    "node-templator": "*"
   },
   "author": "yuekeyuan",
   "license": "ISC",

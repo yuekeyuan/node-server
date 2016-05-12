@@ -1,0 +1,5 @@
+<div>
+    <img src="header.png" style="height: 100px; display:inline-block; float:left;"/>
+    <h1 style="display: inline-block; height: 100px; line-height:100px;">node_templator 介绍{{block name }}hhhh {{end
+        block}}</h1>
+</div>
