@@ -11,13 +11,13 @@ function StaticRouter() {
 
     this.processRequest = function(req, res){
         var path = url.parse(req.url).pathname;
-        console.log(path);
         //处理静态资源
         var result = this.isStaticFileRequest(req, res);
         if(result != false && result != undefined){
             return this.processStaticRequest(req, res, result);
         }
         //处理 非静态 url 资源请求
+        console.log(path);
         var param = this.wrapRequest(req, res);
         this.processDynamicRequest(req, res, param);
     };
@@ -43,18 +43,18 @@ function StaticRouter() {
                 res.writeHead(404, {"Content-Type": "text/plain"});
                 res.write("file not found");
                 res.end();
-                return;
+
             } else {
                 fs.readFile(realPath, function(err, file){
                     if(err){
                         res.writeHead(500, {"Content-Type": "text/plain"});
                         res.end(err);
-                        return;
+
                     }else{
                         res.writeHead(200, {"Content-Type" : mime});
                         res.write(file, "binary");
                         res.end();
-                        return;
+
                     }
                 });
             }

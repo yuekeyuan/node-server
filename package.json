@@ -1,6 +1,6 @@
 {
   "name": "nody-server",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "this is my node server engine",
   "main": "server.js",
   "scripts": {

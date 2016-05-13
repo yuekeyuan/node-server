@@ -185,7 +185,7 @@ function MatchUrl(){
 function DynamicRouter(){
     this.urlConfig = null;
     var matchUrl = new MatchUrl();
-    var renderEngine = new Render({templateDir: "\\resource\\template\\", preCompile: false});
+    var renderEngine = new Render({templateDir: "\\resource\\template\\", preCompile: false, cache: false});
     this.processDynamicRequest = function(req, res){
         param = wrapRequest(req, res);
         var handler = mapUrl2Handler(param);

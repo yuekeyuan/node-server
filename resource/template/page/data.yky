@@ -1,1 +1,9 @@
-this is basic
+{{extends parent_framework.yky}}
+
+{{block article_content}}
+<script>
+    var content = "#这个是关于数据填充的一个内容。";
+
+    document.write(markdown.toHTML(content));
+</script>
+{{end block}}
